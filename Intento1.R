@@ -1,13 +1,13 @@
 #matriz=variable aleatoria discreta
 
-function(matriz, vect_fila, vect_columna){
+funcion<-function(matriz, x, y){
   #marginales
-  px<-rowSum(matriz)
+  px<-rowSums(matriz)
   py<-colSums(matriz)
   
   #Valor esperado
-  EX<-x*px
-  EY<-y*py
+  EX<-sum(x*px)
+  EY<-sum(y*py)
   EXY<-sum(matriz*(x%o%y))#%o% hace todas las combiancaciones de 2 vectores
   
   #Varianzas
@@ -22,8 +22,8 @@ function(matriz, vect_fila, vect_columna){
   
   #Resultados
   list(
-    soporte_X = vect_fila,
-    soporte_Y = vect_columna,
+    soporte_X = x,
+    soporte_Y = y,
     marginal_X = px,
     marginal_Y = py,
     EX = EX, EY = EY, EXY = EXY,
@@ -33,3 +33,13 @@ function(matriz, vect_fila, vect_columna){
 }
 
 
+# Matriz de probabilidades conjuntas (filas: X, columnas: Y)
+matriz <- matrix(c(0.10, 0.05,
+              0.20, 0.15,
+              0.25, 0.25), nrow = 3, byrow = TRUE)
+# Soportes (opcional)
+x <- c(0, 1, 2)   # valores que puede tomar X
+y <- c(1, 3)      # valores que puede tomar Y
+
+res <- funcion(matriz,x, y)
+str(res)
