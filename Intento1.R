@@ -2,8 +2,8 @@
 
 funcion<-function(matriz, x, y){
   #marginales
-  px<-rowSums(matriz)
-  py<-colSums(matriz)
+  px<-rowSums(matriz) #suma las filas de la matriz
+  py<-colSums(matriz) #suma las columnas de la matriz
   
   #Valor esperado
   EX<-sum(x*px)
@@ -11,8 +11,8 @@ funcion<-function(matriz, x, y){
   EXY<-sum(matriz*(x%o%y))#%o% hace todas las combiancaciones de 2 vectores
   
   #Varianzas
-  EX2<-sum(x^2*px)
-  EY2<-sum(y^2*py)
+  EX2<-sum(x^2*px) #se calcula para usarla en la varianza x
+  EY2<-sum(y^2*py) #se calcula para usarla en la varianza y
   
   VarX <- EX2 - EX^2
   VarY <- EY2 - EY^2
