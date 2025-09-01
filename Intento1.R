@@ -1,6 +1,10 @@
 #matriz=variable aleatoria discreta
 
 funcion<-function(matriz, x, y){
+  
+  #función de probabilidad conjunta
+  
+  
   #marginales
   px<-rowSums(matriz) #suma las filas de la matriz
   py<-colSums(matriz) #suma las columnas de la matriz
