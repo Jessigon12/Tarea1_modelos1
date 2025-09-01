@@ -17,6 +17,19 @@ function(matriz, vect_fila, vect_columna){
   VarX <- EX2 - EX^2
   VarY <- EY2 - EY^2
   
+  #coeficiente de correlacción entre X y Y
+  CovXY<-EXY-EX*EY
+  
+  #Resultados
+  list(
+    soporte_X = vect_fila,
+    soporte_Y = vect_columna,
+    marginal_X = px,
+    marginal_Y = py,
+    EX = EX, EY = EY, EXY = EXY,
+    VarX = VarX, VarY = VarY,
+    CovXY = CovXY
+  )
 }
 
 
